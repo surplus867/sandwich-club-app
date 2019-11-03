@@ -20,42 +20,49 @@ public class JsonUtils {
     private final static String KEY_INGREDIENTS = "ingredients";
 
 
-    public static Sandwich parseSandwichJson(String json) throws JSONException {
+    public static Sandwich parseSandwichJson(String json) {
 
-        JSONObject sandwichObject = new JSONObject(json);
+        try {
 
-        JSONObject name = sandwichObject.getJSONObject(KEY_NAME);
+            JSONObject sandwichObject = new JSONObject(json);
 
-        String mainName = name.getString(KEY_MAIN_NAME);
+            JSONObject name = sandwichObject.getJSONObject(KEY_NAME);
 
-        JSONArray alsoKnownAsArray = name.getJSONArray(KEY_ALSO_KNOWN_AS);
-        List<String> alsoKnownAs = new ArrayList<>();
-        if (alsoKnownAsArray.length() != 0) {
-            for (int i = 0; i < alsoKnownAsArray.length(); i++) {
-                alsoKnownAs.add(i, alsoKnownAsArray.getString(i));
+            String mainName = name.getString(KEY_MAIN_NAME);
+
+            JSONArray alsoKnownAsArray = name.getJSONArray(KEY_ALSO_KNOWN_AS);
+            List<String> alsoKnownAs = new ArrayList<>();
+            if (alsoKnownAsArray.length() != 0) {
+                for (int i = 0; i < alsoKnownAsArray.length(); i++) {
+                    alsoKnownAs.add(i, alsoKnownAsArray.getString(i));
+
+                }
+            } else {
+                alsoKnownAs = null;
+            }
+
+            String placeOfOrigin = sandwichObject.getString(KEY_PLACE_OF_ORIGIN);
+
+            String description = sandwichObject.getString(KEY_DESCRIPTION);
+
+            String imageUrl = sandwichObject.getString(KEY_IMAGE_URL);
+
+            JSONArray ingredientsArray = sandwichObject.getJSONArray(KEY_INGREDIENTS);
+            List<String> ingredients = new ArrayList<>();
+            if (ingredientsArray.length() != 0) {
+                for (int i = 0; i < ingredientsArray.length(); i++) {
+                    ingredients.add(i, ingredientsArray.getString(i));
+                }
+            } else {
+                ingredients = null;
 
             }
-        } else {
-            alsoKnownAs = null;
-        }
+            return new Sandwich(mainName, alsoKnownAs, placeOfOrigin, description, imageUrl, ingredients);
 
-        String placeOfOrigin = name.getString(KEY_PLACE_OF_ORIGIN);
-
-        String description = name.getString(KEY_DESCRIPTION);
-
-        String imageUrl = name.getString(KEY_IMAGE_URL);
-
-        JSONArray ingredientsArray = name.getJSONArray(KEY_INGREDIENTS);
-        List<String> ingredients = new ArrayList<>();
-        if (ingredientsArray.length() != 0) {
-            for (int i = 0; i < ingredientsArray.length(); i++) {
-                ingredients.add(i, ingredientsArray.getString(i));
-            }
-        } else {
-            ingredients = null;
+        } catch (JSONException e) {
 
         }
-        return new Sandwich(mainName, alsoKnownAs, placeOfOrigin, description, imageUrl, ingredients);
-
+        return null;
     }
 }
+

@@ -35,28 +35,23 @@
 
         <TextView
             android:id="@+id/also_known_label_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="16dp"
+            style="@style/CategoriesText"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/detail_also_known_as_label"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/also_known_tv"
+            app:layout_constraintEnd_toStartOf="@+id/also_known_tv"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/also_known_tv"
+            style="@style/CategoriesText"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
-            android:text="@string/detail_also_known_as_label"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.026"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_iv" />
-
-        <TextView
-            android:id="@+id/also_known_tv"
-            style="@style/CategoriesText"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/also_known_label_tv"

@@ -61,7 +61,7 @@ public class DetailActivity extends AppCompatActivity {
 
         String[] sandwiches = getResources().getStringArray(R.array.sandwich_details);
         String json = sandwiches[position];
-        Sandwich sandwich = null;
+
         sandwich = JsonUtils.parseSandwichJson(json);
         if (sandwich == null) {
             // Sandwich data unavailable
