@@ -145,7 +145,7 @@
 
         <TextView
             android:id="@+id/description_tv"
-            android:layout_width="209dp"
+            android:layout_width="208dp"
             android:layout_height="371dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
