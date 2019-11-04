@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         tools:context="com.udacity.sandwichclub.DetailActivity">
 
+
         <ImageView
             android:id="@+id/image_iv"
             android:layout_width="378dp"
@@ -32,37 +33,33 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@mipmap/ic_launcher" />
 
-
         <TextView
             android:id="@+id/also_known_label_tv"
-            style="@style/CategoriesText"
-            android:layout_marginEnd="16dp"
+            style="@style/LabelTextView"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             android:text="@string/detail_also_known_as_label"
             android:textStyle="bold"
-            app:layout_constraintBaseline_toBaselineOf="@+id/also_known_tv"
-            app:layout_constraintEnd_toStartOf="@+id/also_known_tv"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/origin_label_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_iv" />
 
         <TextView
             android:id="@+id/also_known_tv"
-            style="@style/CategoriesText"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            style="@style/ContentTextView"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintStart_toEndOf="@+id/also_known_label_tv"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_iv"
             tools:text='"Kanapka", "Buchta"' />
 
         <TextView
             android:id="@+id/origin_label_tv"
-            style="@style/CategoriesText"
-            android:layout_width="115dp"
-            android:layout_height="23dp"
+            style="@style/LabelTextView"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="12dp"
@@ -70,31 +67,26 @@
             android:layout_marginRight="8dp"
             android:text="@string/detail_place_of_origin_label"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/origin_tv"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/also_known_tv" />
 
         <TextView
             android:id="@+id/origin_tv"
-            style="@style/CategoriesText"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            style="@style/LabelTextView"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="40dp"
-            app:layout_constraintBottom_toTopOf="@+id/ingredients_tv"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/origin_label_tv"
+            app:layout_constraintStart_toEndOf="@+id/also_known_label_tv"
             app:layout_constraintTop_toBottomOf="@+id/also_known_tv"
             tools:text="Cuba" />
 
         <TextView
             android:id="@+id/ingredients_label_tv"
-            style="@style/CategoriesText"
+            style="@style/LabelTextView"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="@string/detail_ingredients_label"
@@ -105,24 +97,20 @@
 
         <TextView
             android:id="@+id/ingredients_tv"
-            style="@style/CategoriesText"
+            style="@style/ContentTextView"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/description_label_tv"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/ingredients_label_tv"
-            app:layout_constraintTop_toBottomOf="@+id/origin_tv"
-            app:layout_constraintVertical_bias="0.208"
+            app:layout_constraintTop_toTopOf="@+id/ingredients_label_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/also_known_label_tv"
             tools:text="Butter, eggs" />
 
         <TextView
             android:id="@+id/description_label_tv"
-            style="@style/CategoriesText"
+            style="@style/LabelTextView"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="46dp"
@@ -133,27 +121,22 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/description_tv"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredients_label_tv"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.001" />
 
         <TextView
             android:id="@+id/description_tv"
-            android:layout_width="208dp"
-            android:layout_height="371dp"
+            style="@style/ContentTextView"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.661"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/origin_tv"
-            app:layout_constraintVertical_bias="0.053"
+            app:layout_constraintStart_toEndOf="@+id/description_label_tv"
+            app:layout_constraintTop_toTopOf="@+id/description_label_tv"
             tools:text='"Shawarma also spelled shawurma or shawerma, is a Levantine meat preparation, where lamb, chicken, turkey, beef, veal, or mixed meats are placed on a spit (commonly a vertical spit in restaurants), and may be grilled for as long as a day. Shavings are cut off the block of meat for serving, and the remainder of the block of meat is kept heated on the rotating spit. Shawarma can be served on a plate (generally with accompaniments), or as a sandwich or wrap. Shawarma is usually eaten with tabbouleh, fattoush, taboon bread, tomato, and cucumber. Toppings include tahini, hummus, pickled turnips and amba' />
 
     </android.support.constraint.ConstraintLayout>

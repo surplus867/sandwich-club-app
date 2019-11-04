@@ -25,17 +25,23 @@ public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
+    //Initialize a sandwich object
     private Sandwich sandwich;
 
+    //TextView "origin of the Sandwich"
     @BindView(R.id.origin_tv)
+    //TextView "place of origin of the Sandwich"
     TextView placeOfOriginTextView;
+    //TextView "also known as"
     @BindView(R.id.also_known_tv)
     TextView alsoKnownAsTextView;
+    //TextView "description of the Sandwich"
     @BindView(R.id.description_tv)
     TextView descriptionTextView;
+    //TextView "ingredients of the Sandwich"
     @BindView(R.id.ingredients_tv)
     TextView ingredientsTextView;
-
+    //ImageView of the Sandwich
     @BindView(R.id.image_iv)
     ImageView sandwichImageView;
 
@@ -45,6 +51,7 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        // Bind views with Butter Knife
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
@@ -83,25 +90,35 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI() {
-        String originString = sandwich.getPlaceOfOrigin();
-        if (originString != null) {
-            placeOfOriginTextView.setText(originString);
-        } else {
-            placeOfOriginTextView.setText(getString(R.string.missing_information));
-        }
-        descriptionTextView.setText(getString(R.string.missing_information));
-
+        //Get list of strings from "alsoKnownAs"
         List<String> alsoKnownAsList = sandwich.getAlsoKnownAs();
         if(alsoKnownAsList !=null){
-        alsoKnownAsTextView.setText(TextUtils.join(",", alsoKnownAsList));
+        //If the alsoKnownAsList is not null, set TextView and use TextUtils.join method
+            alsoKnownAsTextView.setText(TextUtils.join(",", alsoKnownAsList));
         }else{
+        //If the alsoKnownAsList is null, show the user the information availability
             alsoKnownAsTextView.setText(R.string.missing_information);
         }
 
+        //Get place of the origin string
+        String originString = sandwich.getPlaceOfOrigin();
+        //Check if the origin String is not null, set the text to origin textView, otherwise hide the TextView
+        if (originString != null) {
+            placeOfOriginTextView.setText(originString);
+        } else {
+        //If the origin String is null, show the user the information availability
+            placeOfOriginTextView.setText(getString(R.string.missing_information));
+        }
+        //Set the description String to the description TextView
+        descriptionTextView.setText(sandwich.getDescription());
+
+        //Get List of Strings from "Ingredients"
         List<String> ingredientsList = sandwich.getIngredients();
+        //Check if the ingredientsList is not null, set TextView and use TextUtils.join method
         if(ingredientsList !=null){
             ingredientsTextView.setText(TextUtils.join(",",ingredientsList));
         }else{
+        //If the ingredientsList is null, show the user the information availability
             ingredientsTextView.setText(R.string.missing_information);
         }
     }

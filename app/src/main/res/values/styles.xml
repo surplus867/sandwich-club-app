@@ -6,9 +6,16 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+    <!-- Style for the label text view -->
+    <style name="LabelTextView">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="CategoriesText">
+    <!-- Style for the content text view -->
+    <style name="ContentTextView">
     <item name="android:layout_width">0dp</item>
     <item name="android:layout_height">wrap_content</item>
     </style>
